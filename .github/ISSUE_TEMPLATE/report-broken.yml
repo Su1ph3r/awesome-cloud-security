@@ -1,0 +1,55 @@
+name: Report Broken Link
+description: Report a broken or outdated link
+title: "[Broken Link]: "
+labels: ["broken-link"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the list up to date!
+
+  - type: input
+    id: tool-name
+    attributes:
+      label: Tool Name
+      description: Name of the tool with the broken link
+      placeholder: e.g., CloudGuard
+    validations:
+      required: true
+
+  - type: input
+    id: current-url
+    attributes:
+      label: Current URL
+      description: The URL that is currently in the list
+      placeholder: https://github.com/org/repo
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Issue Type
+      description: What's wrong with the link?
+      options:
+        - 404 Not Found
+        - Repository archived/deleted
+        - Project moved to new URL
+        - Domain expired
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: new-url
+    attributes:
+      label: New URL (if known)
+      description: If the project has moved, provide the new URL
+      placeholder: https://github.com/new-org/repo
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: Any other relevant context
+      placeholder: Optional
